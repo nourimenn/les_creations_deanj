@@ -4,7 +4,80 @@
 {% block title %}Contact - Mon site vitrine{% endblock %}
 
 {% block content %}
-<section>
+<style>
+    /* =======================
+       Styles page "Contact"
+       ======================= */
+
+    .contact-section {
+        padding: 3rem 0;
+    }
+
+    .contact-grid {
+        margin-top: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+    }
+
+    .contact-intro-text {
+        font-size: 0.95rem;
+        color: #4b5563;
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-infos {
+        font-size: 0.95rem;
+        color: #4b5563;
+    }
+
+    .contact-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+    }
+
+    .contact-form-group {
+        margin-bottom: 1rem;
+    }
+
+    .contact-label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .contact-input,
+    .contact-textarea {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border-radius: 0.75rem;
+        border: 1px solid #d1d5db;
+        font-size: 0.9rem;
+        font-family: inherit;
+    }
+
+    .contact-textarea {
+        resize: vertical;
+    }
+
+    /* =======================
+       Version mobile
+       ======================= */
+
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 2.5rem 0;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="contact-section">
     <div class="container">
         <!-- Titre et sous-titre depuis le modèle ContactPage -->
         <h1 class="section-title">
@@ -14,7 +87,7 @@
             {{ page.intro_subtitle|default:"Utilisez cette page pour permettre à vos visiteurs de vous écrire facilement." }}
         </p>
 
-        <div style="margin-top:2rem; display:grid; gap:2rem; grid-template-columns: minmax(0,1.4fr) minmax(0,1.6fr);">
+        <div class="contact-grid">
             <!-- Infos de contact -->
             <div>
                 <h2 style="font-size:1.15rem; margin-bottom:0.75rem;">Nous écrire</h2>
@@ -22,12 +95,12 @@
                 {% if page.contact_text %}
                     {{ page.contact_text|richtext }}
                 {% else %}
-                    <p style="font-size:0.95rem; color:#4b5563; margin-bottom:0.75rem;">
+                    <p class="contact-intro-text">
                         Ce formulaire peut vous servir de base pour une vraie page contact. Vous pourrez ensuite le relier à un modèle Wagtail ou à un système d’envoi d’email.
                     </p>
                 {% endif %}
 
-                <p style="font-size:0.95rem; color:#4b5563;">
+                <p class="contact-infos">
                     <strong>Email :</strong>
                     {{ page.contact_email|default:"contact@monsitepro.fr" }}<br>
 
@@ -43,25 +116,22 @@
             </div>
 
             <!-- Formulaire de contact (non fonctionnel pour l'instant) -->
-            <div style="background:white; border-radius:1rem; padding:1.5rem; border:1px solid #e5e7eb;">
+            <div class="contact-card">
                 <form action="#" method="post">
                     {# En vrai avec Django/Wagtail : csrf_token, Form, etc. #}
-                    <div style="margin-bottom:1rem;">
-                        <label for="id_name" style="display:block; font-size:0.9rem; margin-bottom:0.35rem;">Nom complet</label>
-                        <input id="id_name" name="name" type="text" required
-                               style="width:100%; padding:0.6rem 0.75rem; border-radius:0.75rem; border:1px solid #d1d5db; font-size:0.9rem;">
+                    <div class="contact-form-group">
+                        <label for="id_name" class="contact-label">Nom complet</label>
+                        <input id="id_name" name="name" type="text" required class="contact-input">
                     </div>
 
-                    <div style="margin-bottom:1rem;">
-                        <label for="id_email" style="display:block; font-size:0.9rem; margin-bottom:0.35rem;">Email</label>
-                        <input id="id_email" name="email" type="email" required
-                               style="width:100%; padding:0.6rem 0.75rem; border-radius:0.75rem; border:1px solid #d1d5db; font-size:0.9rem;">
+                    <div class="contact-form-group">
+                        <label for="id_email" class="contact-label">Email</label>
+                        <input id="id_email" name="email" type="email" required class="contact-input">
                     </div>
 
-                    <div style="margin-bottom:1rem;">
-                        <label for="id_message" style="display:block; font-size:0.9rem; margin-bottom:0.35rem;">Message</label>
-                        <textarea id="id_message" name="message" rows="4" required
-                                  style="width:100%; padding:0.6rem 0.75rem; border-radius:0.75rem; border:1px solid #d1d5db; font-size:0.9rem;"></textarea>
+                    <div class="contact-form-group">
+                        <label for="id_message" class="contact-label">Message</label>
+                        <textarea id="id_message" name="message" rows="4" required class="contact-textarea"></textarea>
                     </div>
 
                     <button type="submit" class="btn-primary">

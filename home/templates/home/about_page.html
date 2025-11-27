@@ -4,7 +4,68 @@
 {% block title %}À propos - Mon site vitrine{% endblock %}
 
 {% block content %}
-<section>
+<style>
+    /* =======================
+       Styles page "À propos"
+       ======================= */
+
+    .about-section {
+        padding: 3rem 0;
+    }
+
+    .about-grid {
+        margin-top: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        align-items: center;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        color: #4b5563;
+        margin-bottom: 0.75rem;
+    }
+
+    .about-image-card {
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+    }
+
+    .about-image-card img {
+        width: 100%;
+        display: block;
+        border-radius: 1rem;
+    }
+
+    .about-caption {
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: #6b7280;
+    }
+
+    /* =======================
+       Version mobile
+       ======================= */
+
+    @media (max-width: 768px) {
+        .about-section {
+            padding: 2.5rem 0;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-image-card {
+            order: -1; /* l'image peut passer au-dessus du texte si tu veux */
+        }
+    }
+</style>
+
+<section class="about-section">
     <div class="container">
         <!-- Titre et sous-titre depuis le modèle AboutPage -->
         <h1 class="section-title">
@@ -14,37 +75,36 @@
             {{ page.intro_subtitle|default:"Utilisez cette page pour présenter votre histoire, vos valeurs et votre vision." }}
         </p>
 
-        <div style="margin-top:2rem; display:grid; gap:2rem; grid-template-columns: minmax(0,2fr) minmax(0,1.5fr); align-items:center;">
-            <!-- Texte de présentation (richtext) -->
-            <div>
+        <div class="about-grid">
+            <!-- Texte de présentation -->
+            <div class="about-text">
                 {# Contenu riche modifiable dans l’admin Wagtail #}
                 {% if page.body %}
                     {{ page.body|richtext }}
                 {% else %}
-                    <p style="font-size:0.95rem; color:#4b5563; margin-bottom:0.75rem;">
+                    <p>
                         Ce modèle de page "À propos" vous sert d’exemple&nbsp;: vous pouvez le personnaliser avec votre propre histoire, vos valeurs et votre vision.
                     </p>
-                    <p style="font-size:0.95rem; color:#4b5563; margin-bottom:0.75rem;">
+                    <p>
                         L’objectif est de rester simple, clair et humain&nbsp;: expliquez à qui s’adresse votre site, ce que vous faites et pourquoi vous le faites.
                     </p>
-                    <p style="font-size:0.95rem; color:#4b5563;">
+                    <p>
                         Vous pouvez aussi ajouter des chiffres clés, une timeline ou des photos de votre équipe.
                     </p>
                 {% endif %}
             </div>
 
             <!-- Bloc visuel / image décorative -->
-            <div style="background:white; border-radius:1.5rem; padding:1.5rem; border:1px solid #e5e7eb;">
+            <div class="about-image-card">
                 <div style="border-radius:1rem; overflow:hidden;">
                     {% if page.image %}
                         {% image page.image fill-800x500 %}
                     {% else %}
                         <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg"
-                             alt="Équipe qui travaille ensemble"
-                             style="width:100%; display:block;">
+                             alt="Équipe qui travaille ensemble">
                     {% endif %}
                 </div>
-                <p style="margin-top:0.75rem; font-size:0.85rem; color:#6b7280;">
+                <p class="about-caption">
                     {% if page.image_caption %}
                         {{ page.image_caption }}
                     {% else %}
