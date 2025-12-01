@@ -19,9 +19,9 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            color: #1f2933;
-            background-color: #f5f7fa;
+            font-family: 'American Typewriter', serif;
+            color: #000000;
+            background-color: #f1e8ff;
             line-height: 1.6;
         }
 
@@ -32,8 +32,8 @@
 
         /* Layout */
         header {
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
+            background: rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
             position: sticky;
             top: 0;
             z-index: 10;
@@ -69,26 +69,26 @@
         }
 
         .nav-links a:hover {
-            border-bottom-color: #3b82f6;
+            border-bottom-color: #ecf2ba;
         }
 
         .btn-primary {
             display: inline-block;
             padding: 0.75rem 1.4rem;
             border-radius: 999px;
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
+            background: linear-gradient(135deg, #b8eac8, #fbcde5b4);
+            color: rgb(236, 120, 174);
             font-weight: 500;
             font-size: 0.95rem;
             border: none;
             cursor: pointer;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 10px 18px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 10px 18px rgba(231, 162, 243, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 14px 24px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 14px 24px rgba(242, 159, 188, 0.501);
         }
 
         main {
@@ -98,8 +98,8 @@
         footer {
             margin-top: 3rem;
             padding: 2rem 0 1rem;
-            background: #111827;
-            color: #e5e7eb;
+            background: #fce9f4;
+            color: #4c1352;
         }
 
         .footer-top {
@@ -109,7 +109,7 @@
             justify-content: space-between;
             align-items: flex-start;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid #fe90e5;
         }
 
         .footer-column h4 {
@@ -127,11 +127,11 @@
 
         .footer-links a {
             font-size: 0.9rem;
-            color: #9ca3af;
+            color: #220b39;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            color: #30063a;
         }
 
         .social-icons {
@@ -154,14 +154,14 @@
 
         .social-icon:hover {
             background: #e5e7eb;
-            color: #111827;
+            color: #280937;
         }
 
         .footer-bottom {
             text-align: center;
             margin-top: 1rem;
             font-size: 0.8rem;
-            color: #6b7280;
+            color: #3f0c5d;
         }
 
         /* Sections génériques */
@@ -176,7 +176,7 @@
 
         .section-subtitle {
             font-size: 0.95rem;
-            color: #6b7280;
+            color: #4a1246;
         }
 
         /* Responsive */
@@ -204,7 +204,7 @@
         <nav class="nav">
             <div class="logo">
                 <!-- Logo / Nom du site -->
-                MonSite<span style="color:#3b82f6;">Pro</span>
+                Les créations de <span style="color:#521c51;"> A.N.J</span>
             </div>
             <div class="nav-links">
                 <!-- Rappel navigation header (liens vers les pages principales) -->
@@ -227,8 +227,8 @@
     <div class="container">
         <div class="footer-top">
             <div class="footer-column">
-                <h4>MonSitePro</h4>
-                <p style="font-size:0.9rem; color:#9ca3af;">
+                <h4>Les créations de A.N.J</h4>
+                <p style="font-size:0.9rem; color:#3c0f3b;">
                     Un exemple de site vitrine moderne avec Wagtail.
                 </p>
             </div>
@@ -246,7 +246,7 @@
 
             <div class="footer-column">
                 <h4>Suivez-nous</h4>
-                <p style="font-size:0.9rem; color:#9ca3af;">Retrouvez-nous sur les réseaux sociaux :</p>
+                <p style="font-size:0.9rem; color:#43114a;">Retrouvez-nous sur les réseaux sociaux :</p>
                 <div class="social-icons">
                     <!-- Icônes sociales simples (texte pour l'exemple) -->
                     <a href="#" class="social-icon" aria-label="Facebook">F</a>
@@ -257,7 +257,7 @@
         </div>
 
         <div class="footer-bottom">
-            &copy; {% now "Y" %} MonSitePro · Tous droits réservés.
+            &copy; {% now "Y" %} Les créations de A.N.J · Tous droits réservés.
         </div>
     </div>
 </footer>

@@ -24,23 +24,30 @@
         background: white;
         border-radius: 1rem;
         padding: 1.5rem;
-        border: 1px solid #e5e7eb;
+        border: 1px solid #c596ed;
     }
 
-    .service-card-full h2 {
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
-    }
+    .service-card-full {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #ecb6ff;
+    overflow: hidden; /* empêche le débordement des images */
+}
 
-    .service-card-full p {
-        font-size: 0.95rem;
-        color: #4b5563;
-        margin-bottom: 0.75rem;
-    }
+.service-card-full img {
+    width: 100%;           /* image prend toute la largeur */
+    height: 200px;         /* fixe une hauteur pour cadrer */
+    object-fit: cover;     /* recadre l’image sans la déformer */
+    border-radius: 1rem;   /* arrondit l’image comme la carte */
+    display: block;        /* supprime l’espace blanc sous l’image */
+}
+
+
 
     .service-features {
         font-size: 0.9rem;
-        color: #6b7280;
+        color: #f54e7b;
         margin-left: 1.1rem;
     }
 
@@ -48,7 +55,7 @@
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.12em;
-        color: #2563eb;
+        color: #f6d7ee;
         margin-bottom: 0.35rem;
     }
 
@@ -63,7 +70,7 @@
 
         .services-list-grid {
             grid-template-columns: 1fr;
-        }
+        }   
     }
 </style>
 
@@ -117,7 +124,7 @@
                     {% endif %}
                 {% endfor %}
             {% else %}
-                <p style="color:#6b7280; font-size:0.95rem; margin-top:1.5rem;">
+                <p style="color:#faefc1; font-size:0.95rem; margin-top:1.5rem;">
                     Aucun service n’a encore été ajouté. Vous pouvez créer vos services dans l’admin Wagtail pour les voir apparaître ici.
                 </p>
             {% endif %}

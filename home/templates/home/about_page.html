@@ -23,7 +23,7 @@
 
     .about-text p {
         font-size: 0.95rem;
-        color: #4b5563;
+        color: #371145;
         margin-bottom: 0.75rem;
     }
 
@@ -35,15 +35,19 @@
     }
 
     .about-image-card img {
-        width: 100%;
-        display: block;
-        border-radius: 1rem;
+    width: auto;        /* ne force plus le stretch */
+    max-width: 100%;    /* ne dépasse pas du container */
+    height: auto;       /* garde le ratio naturel */
+    display: block;
+    border-radius: 1rem;
+    margin: 0 auto;     /* centre l’image */
+
     }
 
     .about-caption {
         margin-top: 0.75rem;
         font-size: 0.85rem;
-        color: #6b7280;
+        color: #e77620;
     }
 
     /* =======================
